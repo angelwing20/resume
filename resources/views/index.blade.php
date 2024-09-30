@@ -47,7 +47,7 @@
         top: 0;
         width: 100%;
         z-index: 100;
-        background-color: rgba(0, 0, 0, 0.7);
+        background-color: rgba(0, 0, 0, 0.8);
         color: yellow;
     }
     .p-5 {
@@ -59,13 +59,26 @@
     .navbar-brand:hover {
         color: #ffd700 !important;
     }
+    .float{
+        padding-top: 10px;
+        transition: transform 0.3s ease !important;
+    }
+    .float:hover{
+        transform: translateY(-10px);
+    }
+    .anima{
+        background-color: white;
+    }
+    .anima:hover{
+        background-color: rgba(0, 0, 0, 0.6);
+    }
 </style>
 
 <body class="bg-light" id="top">
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
-                <!-- Logo -->
+                
                 <a class="navbar-brand" href="#intro" style="color:yellow;">Chin Chun Teng</a>
 
                 <!-- Toggler for mobile view -->
@@ -74,7 +87,6 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <!-- Navigation links -->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
@@ -90,7 +102,10 @@
                             <a class="nav-link" href="#education">Education</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#portfolio">Project</a>
+                            <a class="nav-link" href="#portfolio">Qualification</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#miniproject">Mini Project</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#references">References</a>
@@ -149,7 +164,7 @@
                                 </div>
                                 <div class="d-print-none">
                                     <a class="btn btn-outline-light btn-lg shadow-sm mt-1 me-3"
-                                        href="material-resume.pdf" data-aos-offset="10" data-aos="fade-right"
+                                        href="{{ asset('storage/pdf/resume.pdf') }}" target="_blank" data-aos-offset="10" data-aos="fade-right"
                                         data-aos-delay="500">View Resume</a>
                                     <a class="btn btn-info btn-lg shadow-sm mt-1" href="#contact"
                                         data-aos-offset="10" data-aos="fade-left" data-aos-delay="500">Hire Me</a>
@@ -327,55 +342,36 @@
                 </div>
                 <div class="shadow-1-strong bg-white my-5 p-5 d-print-none" id="portfolio">
                     <div class="portfolio-section">
+                        <h2 class="h2 fw-light mb-4">Qualification</h2>
+                        <div class="row g-0">
+                            <div class="col-md-6 d-flex align-items-center anima" style="padding-bottom:10px;padding-top:11px;display:flex;justify-content:center;" data-aos="fade-right" data-aos-delay="100">
+                                <a href="{{ route('qualification') }}" class="float" target="_blank">
+                                    <img class="img-fluid " src="{{ asset('storage/images/great learning.jpg') }}" width="400" height="200" />
+                                </a>
+                            </div>
+                            <div class="col-md-6 d-flex align-items-center anima" style="padding-bottom:10px;padding-top:11px;display:flex;justify-content:center;" data-aos="fade-left" data-aos-delay="100">
+                                <a href="{{ route('qualification_two') }}" class="float" target="_blank">
+                                    <img class="img-fluid" src="{{ asset('storage/images/e latih.png') }}" width="400" height="200" />
+                                </a>
+                            </div>
+                        </div>                
+                    </div>
+                </div>
+                <div class="shadow-1-strong bg-white my-5 p-5 d-print-none" id="miniproject">
+                    <div>
                         <h2 class="h2 fw-light mb-4">Mini Project</h2>
                         <div class="row g-0">
-                            <div class="col-md-6">
-                                <a href="https://dribbble.com/" target="_blank"><img
-                                        class="img-fluid" src="{{ asset('storage/images/project-1.jpg') }}"
-                                        width="800" height="500" /></a>
+                            <div class="col-md-6 d-flex align-items-center anima" style="padding-bottom:10px;padding-top:11px;" data-aos="fade-right" data-aos-delay="100">
+                                <a href="{{ asset('storage/images/Chin Chun Teng PHP.pdf') }}" class="float" target="_blank">
+                                    <p></p>
+                                </a>
                             </div>
-                            <div class="col-md-6 d-flex align-items-center" data-aos="fade-left"
-                                data-aos-delay="100">
-                                <div class="m-4 mt-md-2">
-                                    <p class="text-teal text-small">Frontend / HTML / CSS / JavaScript</p>
-                                    <h3>Photo Agency Website</h3>
-                                    <p class="text-muted">Built highly performant website front end for a Photography
-                                        agency. Delivered
-                                        codebase in HTML, CSS and modern JavaScript.</p>
-                                </div>
+                            <div class="col-md-6 d-flex align-items-center anima" style="padding-bottom:10px;padding-top:11px;" data-aos="fade-left" data-aos-delay="100">
+                                <a href="{{ asset('storage/images/Chin Chun Teng Javascript.pdf') }}" class="float" target="_blank">
+                                    
+                                </a>
                             </div>
-                        </div>
-                        <div class="row g-0 portfolio-reverse">
-                            <div class="col-md-6 d-flex align-items-center" data-aos="fade-right"
-                                data-aos-delay="100">
-                                <div class="m-4 mt-md-2 text-end">
-                                    <p class="text-teal text-small">Graphic Design / Photoshop / Sketch</p>
-                                    <h3>Restaurant Website Design</h3>
-                                    <p class="text-muted">Web design for popular resturant chain involving complex
-                                        layouts done in both
-                                        Photoshop and Sketch. Collaborated with back-end and front-end team for finished
-                                        product.</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6"><a href="https://www.behance.net/" target="_blank"><img
-                                        class="img-fluid" src="{{ asset('storage/images/project-2.jpg') }}"
-                                        width="800" height="500" /></a></div>
-                        </div>
-                        <div class="row g-0">
-                            <div class="col-md-6"><a href="https://dribbble.com/" target="_blank"><img
-                                        class="img-fluid" src="{{ asset('storage/images/project-3.jpg') }}"
-                                        width="800" height="500" /></a></div>
-                            <div class="col-md-6 d-flex align-items-center" data-aos="fade-left"
-                                data-aos-delay="100">
-                                <div class="m-4 mt-md-2">
-                                    <p class="text-teal text-small">Frontend / HTML / CSS / JavaScript</p>
-                                    <h3>E-Commerce Website</h3>
-                                    <p class="text-muted">Built highly performant website for an E-commerce Portal.
-                                        Worked with back-end
-                                        team to timely deliver codebase in HTML, CSS and modern JavaScript.</p>
-                                </div>
-                            </div>
-                        </div>
+                        </div>        
                     </div>
                 </div>
                 <div class="shadow-1-strong bg-white my-5 p-5" id="references">
