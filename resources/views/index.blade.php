@@ -1,3 +1,9 @@
+@session('message')
+    <script>
+        window.alert("{{ session('message') }}")
+    </script>
+@endsession
+
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -29,7 +35,7 @@
         </style>
     </noscript>
 </head>
-<!-- 引入Bootstrap CSS -->
+
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- 引入jQuery, Popper.js, 和Bootstrap JS -->
@@ -59,6 +65,14 @@
     .navbar-brand:hover {
         color: #ffd700 !important;
     }
+    .navhover{
+        font-size: 18px;
+        transition:font-size 0.3s ease;
+    }
+    .navhover:hover{
+        font-size: 20px;
+        font-weight: bold;
+    }
     .float{
         padding-top: 10px;
         transition: transform 0.3s ease !important;
@@ -72,6 +86,22 @@
     .anima:hover{
         background-color: rgba(0, 0, 0, 0.6);
     }
+    .mini{
+        background-color:rgba(0,0,0,0.7);
+        padding: 8px;
+        color:white;
+        width: 200px;
+        transition: width 1s ease ;
+        display: flex;
+        justify-content: center;
+    }
+    .mini:hover{
+        width: 14rem;
+    }
+    .symbol{
+        margin-top:11px;
+        padding-left:8px;
+    }
 </style>
 
 <body class="bg-light" id="top">
@@ -81,7 +111,6 @@
                 
                 <a class="navbar-brand" href="#intro" style="color:yellow;">Chin Chun Teng</a>
 
-                <!-- Toggler for mobile view -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -89,29 +118,40 @@
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about" style="margin-left:1rem;">About Me</a>
+                        <li class="nav-item" style="display: flex;align-items:center;">
+                            <a class="nav-link navhover" href="#about" style="margin-left:1rem;">About Me</a>
+                            <p class="symbol">|</p>
+                        </li>
+                        <li class="nav-item" style="display: flex;align-items:center;">
+                            <a class="nav-link navhover" href="#skills" style="padding-left:0px;">Skills</a>
+                            <p class="symbol">|</p>
+                        </li>
+                        <li class="nav-item" style="display: flex;align-items:center;">
+                            <a class="nav-link navhover" href="#experience" style="padding-left:0px;">Work Experience</a>
+                            <p class="symbol">|</p>
+                        </li>
+                        <li class="nav-item" style="display: flex;align-items:center;">
+                            <a class="nav-link navhover" href="#education" style="padding-left:0px;">Education</a>
+                            <p class="symbol">|</p>
+                        </li>
+                        <li class="nav-item" style="display: flex;align-items:center;">
+                            <a class="nav-link navhover" href="#portfolio" style="padding-left:0px;">Qualification</a>
+                            <p class="symbol">|</p>
+                        </li>
+                        <li class="nav-item" style="display: flex;align-items:center;">
+                            <a class="nav-link navhover" href="#miniproject" style="padding-left:3px;">Mini Project</a>
+                            <p class="symbol">|</p>
+                        </li>
+                        <li class="nav-item" style="display: flex;align-items:center;">
+                            <a class="nav-link navhover" href="#references" style="padding-left:0px;">References</a>
+                            <p class="symbol">|</p>
+                        </li>
+                        <li class="nav-item" style="display: flex;align-items:center;">
+                            <a class="nav-link navhover" href="#contact" style="padding-left:0px;">Contact</a>
+                            <p class="symbol">|</p>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#skills">Skills</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#experience">Work Experience</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#education">Education</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#portfolio">Qualification</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#miniproject">Mini Project</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#references">References</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact</a>
+                            <a class="nav-link navhover" href="{{ route('logout') }}" style="color: red !important;padding-left:0px;"><b>Logout</b></a>
                         </li>
                     </ul>
                 </div>
@@ -122,52 +162,54 @@
     <div class="page-content">
         <div class="shadow-1-strong bg-white" id="intro">
             <div class="bg-info text-white">
-                <div class="cover"><img src="{{ asset('storage/images/header-background.jpg') }}" width="100%"
-                        height="100%" />
-                    <div class="mask"
-                        style="background-color: rgba(0, 0, 0, 0.7);backdrop-filter: blur(2px);height:583px !important;">
+                <div class="cover">
+                    <img src="{{ asset('storage/images/header-background.jpg') }}" width="auto" height="729px" />
+                    <div class="mask" style="background-color: rgba(0, 0, 0, 0.7);backdrop-filter: blur(2px);height:729px !important;">
                         <div class="text-center p-5">
-                            <div class="avatar p-1"><img class="img-thumbnail shadow-2-strong"
-                                    src="{{ asset('storage/images/cct.jpg') }}" width="120" height="auto"
-                                    style="margin-top:60px; " />
+                            <div class="avatar p-1">
+                                <img class="img-thumbnail shadow-2-strong" src="{{ asset('storage/images/cct.jpg') }}" width="150" height="auto" style="margin-top:70px;margin-bottom:20px; " />
                             </div>
                             <div class="header-bio mt-3">
                                 <div data-aos="zoom-in" data-aos-delay="0">
-                                    <h2 class="h1">Chin Chun Teng</h2>
-                                    <p>PROGRAMMING INTERNSHIP</p>
+                                    <h2 class="h1" style="text-shadow: 1px 1px 2px">Chin Chun Teng</h2>
+                                    <p style="margin:10px;">PROGRAMMING INTERNSHIP</p>
                                 </div>
                                 <div class="header-social mb-3 d-print-none" data-aos="zoom-in" data-aos-delay="200">
                                     <nav role="navigation">
                                         <ul class="nav justify-content-center">
-                                            <li class="nav-item"><a class="nav-link"
-                                                    href="https://twitter.com/templateflip" title="Twitter"><i
-                                                        class="fab fa-twitter"></i><span
-                                                        class="menu-title sr-only">Twitter</span></a>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="https://wa.me/601156911236" title="Twitter" target="_blank">
+                                                    <i class="fab fa-whatsapp"></i>
+                                                    <span class="menu-title sr-only">Whatsapp</span>
+                                                </a>
                                             </li>
-                                            <li class="nav-item"><a class="nav-link"
-                                                    href="https://www.facebook.com/templateflip" title="Facebook"><i
-                                                        class="fab fa-facebook"></i><span
-                                                        class="menu-title sr-only">Facebook</span></a>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=chunteng9674@gmail.com" title="Mail" target="_blank">
+                                                    <i class="fas fa-envelope"></i>
+                                                    <span class="menu-title sr-only">Mail</span>
+                                                </a>
                                             </li>
-                                            <li class="nav-item"><a class="nav-link"
-                                                    href="https://www.instagram.com/templateflip" title="Instagram"><i
-                                                        class="fab fa-instagram"></i><span
-                                                        class="menu-title sr-only">Instagram</span></a>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="https://www.instagram.com/ctchin_1114/" title="Instagram" target="_blank">
+                                                    <i class="fab fa-instagram"></i>
+                                                    <span class="menu-title sr-only">Instagram</span>
+                                                </a>
                                             </li>
-                                            <li class="nav-item"><a class="nav-link"
-                                                    href="https://github.com/templateflip" title="Github"><i
-                                                        class="fab fa-github"></i><span
-                                                        class="menu-title sr-only">Github</span></a>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="https://github.com/angelwing20/resume.git" title="Github" target="_blank">
+                                                    <i class="fab fa-github"></i>
+                                                    <span class="menu-title sr-only">Github</span>
+                                                </a>
                                             </li>
                                         </ul>
                                     </nav>
                                 </div>
-                                <div class="d-print-none">
+                                <div class="d-print-none" style="display: flex;justify-content:center;">
                                     <a class="btn btn-outline-light btn-lg shadow-sm mt-1 me-3"
                                         href="{{ asset('storage/pdf/resume.pdf') }}" target="_blank" data-aos-offset="10" data-aos="fade-right"
                                         data-aos-delay="500">View Resume</a>
-                                    <a class="btn btn-info btn-lg shadow-sm mt-1" href="#contact"
-                                        data-aos-offset="10" data-aos="fade-left" data-aos-delay="500">Hire Me</a>
+                                    <a class="btn btn-info btn-lg shadow-sm mt-1" href="{{ asset('storage/document/resume.docx') }}"
+                                        data-aos-offset="10" data-aos="fade-left" data-aos-delay="500"><span class="fas fa-download"></span> Resume</a>
                                 </div>
                             </div>
                         </div>
@@ -175,7 +217,7 @@
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container" style="margin-top:200px;">
             <div class="resume-container">
                 <div class="shadow-1-strong bg-white my-5 p-5" id="about">
                     <div class="about-section">
@@ -232,7 +274,7 @@
                 </div>
                 <div class="shadow-1-strong bg-white my-5 p-5" id="skills">
                     <div class="skills-section">
-                        <h2 class="h2 fw-light mb-4">Skills</h2>
+                        <h2 class="h2 fw-light mb-4"><b>Skills</b></h2>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3"><span class="fw-bolder">HTML</span>
@@ -290,7 +332,7 @@
                 </div>
                 <div class="shadow-1-strong bg-white my-5 p-5" id="experience">
                     <div class="work-experience-section">
-                        <h2 class="h2 fw-light mb-4">Work Experience</h2>
+                        <h2 class="h2 fw-light mb-4"><b>Work Experience</b></h2>
                         <div class="timeline">
                             <div class="timeline-card timeline-card-info" data-aos="fade-in" data-aos-delay="0">
                                 <div class="timeline-head px-4 pt-3">
@@ -313,7 +355,7 @@
                 </div>
                 <div class="shadow-1-strong bg-white my-5 p-5" id="education">
                     <div class="education-section">
-                        <h2 class="h2 fw-light mb-4">Education</h2>
+                        <h2 class="h2 fw-light mb-4"><b>Education</b></h2>
                         <div class="timeline">
                             <div class="timeline-card timeline-card-success" data-aos="fade-in" data-aos-delay="0">
                                 <div class="timeline-head px-4 pt-3">
@@ -342,16 +384,16 @@
                 </div>
                 <div class="shadow-1-strong bg-white my-5 p-5 d-print-none" id="portfolio">
                     <div class="portfolio-section">
-                        <h2 class="h2 fw-light mb-4">Qualification</h2>
+                        <h2 class="h2 fw-light mb-4"><b>Qualification</b></h2>
                         <div class="row g-0">
-                            <div class="col-md-6 d-flex align-items-center anima" style="padding-bottom:10px;padding-top:11px;display:flex;justify-content:center;" data-aos="fade-right" data-aos-delay="100">
+                            <div class="col-md-6 d-flex align-items-center anima" style="padding-bottom:10px;padding-top:10px;display:flex;justify-content:center;" data-aos="fade-right" data-aos-delay="100">
                                 <a href="{{ route('qualification') }}" class="float" target="_blank">
-                                    <img class="img-fluid " src="{{ asset('storage/images/great learning.jpg') }}" width="400" height="200" />
+                                    <img class="img-fluid " src="{{ asset('storage/images/great learning.jpg') }}" width="300" height="200" />
                                 </a>
                             </div>
-                            <div class="col-md-6 d-flex align-items-center anima" style="padding-bottom:10px;padding-top:11px;display:flex;justify-content:center;" data-aos="fade-left" data-aos-delay="100">
+                            <div class="col-md-6 d-flex align-items-center anima" style="padding-bottom:10px;padding-top:10px;display:flex;justify-content:center;" data-aos="fade-left" data-aos-delay="100">
                                 <a href="{{ route('qualification_two') }}" class="float" target="_blank">
-                                    <img class="img-fluid" src="{{ asset('storage/images/e latih.png') }}" width="400" height="200" />
+                                    <img class="img-fluid" src="{{ asset('storage/images/e latih.png') }}" width="300" height="200" />
                                 </a>
                             </div>
                         </div>                
@@ -359,24 +401,28 @@
                 </div>
                 <div class="shadow-1-strong bg-white my-5 p-5 d-print-none" id="miniproject">
                     <div>
-                        <h2 class="h2 fw-light mb-4">Mini Project</h2>
+                        <h2 class="h2 fw-light mb-4"><b>Mini Project</b></h2>
                         <div class="row g-0">
-                            <div class="col-md-6 d-flex align-items-center anima" style="padding-bottom:10px;padding-top:11px;" data-aos="fade-right" data-aos-delay="100">
-                                <a href="{{ asset('storage/images/Chin Chun Teng PHP.pdf') }}" class="float" target="_blank">
-                                    <p></p>
-                                </a>
-                            </div>
-                            <div class="col-md-6 d-flex align-items-center anima" style="padding-bottom:10px;padding-top:11px;" data-aos="fade-left" data-aos-delay="100">
-                                <a href="{{ asset('storage/images/Chin Chun Teng Javascript.pdf') }}" class="float" target="_blank">
-                                    
-                                </a>
+                            <div class="col-md-6 d-flex align-items-center" style="" data-aos="fade-right" data-aos-delay="100">
+                                <ul>
+                                    <li>
+                                        <a href="{{ asset('http://localhost/mini_project/bmi/bmi.php') }}" class="float project" target="_blank" style="text-decoration: none;">
+                                            <p class="mini"><b>BMI Calculator</b></p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ asset('http://localhost/mini_project/calculator/cal.php') }}" class="float project" target="_blank" style="text-decoration: none;">
+                                            <p class="mini"><b>Calculator</b></p>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>        
                     </div>
                 </div>
                 <div class="shadow-1-strong bg-white my-5 p-5" id="references">
                     <div class="reference-section">
-                        <h2 class="h2 fw-light mb-4">References</h2>
+                        <h2 class="h2 fw-light mb-4"><b>References</b></h2>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="d-flex mb-2">
@@ -423,7 +469,7 @@
                 </div>
                 <div class="shadow-1-strong bg-white my-5 p-5" id="contact">
                     <div class="contant-section">
-                        <h2 class="h2 fw-light text mb-4">Contact</h2>
+                        <h2 class="h2 fw-light text mb-4"><b>Contact</b></h2>
                         <div class="row mb-4">
                             <div class="col-md-5" data-aos="fade-left" data-aos-delay="200">
                                 <div class="mt-1">
@@ -434,17 +480,18 @@
                                         chunteng9674@gmail.com</div>
                                 </div>
                                 <div class="mt-5 d-print-none">
-                                    <form action="https://formspree.io/your@email.com" method="POST">
+                                    <form action="{{ route('send') }}" method="POST">
+                                        @csrf
                                         <div class="form-outline mb-4">
-                                            <input type="text" id="name" class="form-control" required />
+                                            <input type="text" id="name" class="form-control" name="name" required />
                                             <label class="form-label" for="name">Name</label>
                                         </div>
                                         <div class="form-outline mb-4">
-                                            <input type="email" id="email" class="form-control" required />
+                                            <input type="email" id="email" class="form-control" name="email" required />
                                             <label class="form-label" for="email">Email address</label>
                                         </div>
                                         <div class="form-outline mb-4">
-                                            <textarea class="form-control" style="resize: none;" id="message" rows="4" required></textarea>
+                                            <textarea class="form-control" style="resize: none;" id="message" name="message" rows="4" required></textarea>
                                             <label class="form-label" for="message">Message</label>
                                         </div>
                                         <button class="btn btn-info btn-block mb-4" type="submit">Send</button>
@@ -469,20 +516,20 @@
                 <div class="footer-nav">
                     <nav role="navigation">
                         <ul class="nav justify-content-center">
-                            <li class="nav-item"><a class="nav-link" href="https://twitter.com/templateflip"
-                                    title="Twitter"><i class="fab fa-twitter"></i><span
-                                        class="menu-title sr-only">Twitter</span></a>
+                            <li class="nav-item"><a class="nav-link" href="https://wa.me/601156911236"
+                                    title="Whatsapp" target="_blank"><i class="fab fa-whatsapp"></i><span
+                                        class="menu-title sr-only">Whatsapp</span></a>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="https://www.facebook.com/templateflip"
-                                    title="Facebook"><i class="fab fa-facebook"></i><span
-                                        class="menu-title sr-only">Facebook</span></a>
+                            <li class="nav-item"><a class="nav-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=chunteng9674@gmail.com"
+                                    title="Mail" target="_blank"><i class="fas fa-envelope"></i><span
+                                        class="menu-title sr-only">Mail</span></a>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/templateflip"
-                                    title="Instagram"><i class="fab fa-instagram"></i><span
+                            <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/ctchin_1114/"
+                                    title="Instagram" target="_blank"><i class="fab fa-instagram"></i><span
                                         class="menu-title sr-only">Instagram</span></a>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="https://github.com/templateflip"
-                                    title="Github"><i class="fab fa-github"></i><span
+                            <li class="nav-item"><a class="nav-link" href="https://github.com/angelwing20/resume.git"
+                                    title="Github" target="_blank"><i class="fab fa-github"></i><span
                                         class="menu-title sr-only">Github</span></a>
                             </li>
                         </ul>
