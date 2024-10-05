@@ -51,8 +51,8 @@
         <div class="resume-container">
             <div class="row g-0">
                 <div class="col-md-6 d-flex align-items-center anima" style="padding-bottom:10px;padding-top:11px;display:flex;justify-content:center;" data-aos="fade-right" data-aos-delay="100">
-                    <a href="{{ asset('storage/pdf/Chin Chun Teng elatih.pdf') }}" class="float" target="_blank">
-                        <img class="img-fluid " src="{{ asset('storage/images/e-latih.jpg') }}" width="400" height="200" />
+                    <a href="{{ asset('storage/pdf/elatih.pdf') }}" class="float" target="_blank">
+                        <img class="img-fluid " src="{{ asset('storage/images/elatih.jpg') }}" width="400" height="200" />
                     </a>
                 </div>
                 <div class="col-md-6 d-flex align-items-center anima" style="padding-bottom:10px;padding-top:11px;display:flex;justify-content:center;" data-aos="fade-left" data-aos-delay="100">

@@ -80,8 +80,8 @@
                     </a>
                 </div>
                 <div class="col-md-6 d-flex align-items-center anima" style="padding-bottom:10px;padding-top:11px;" data-aos="fade-left" data-aos-delay="100">
-                    <a href="{{ asset('storage/pdf/Chin Chun Teng Chatgpt HR.pdf') }}" class="float" target="_blank">
-                        <img class="img-fluid" src="{{ asset('storage/images/Chatgpt HR.jpg') }}" style="max-height: 350px; object-fit: cover; width: 800px;" />
+                    <a href="{{ asset('storage/pdf/Chin Chun Teng CSS Properties.pdf') }}" class="float" target="_blank">
+                        <img class="img-fluid" src="{{ asset('storage/images/Chin Chun Teng CSS Properties.jpg') }}" style="max-height: 350px; object-fit: cover; width: 800px;" />
                     </a>
                 </div>
             </div>

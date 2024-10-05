@@ -73,6 +73,13 @@
         font-size: 20px;
         font-weight: bold;
     }
+    .fahover{
+        transform:scale(1);
+        transition:transform 0.3s ease;
+    }
+    .fahover:hover{
+        transform:scale(1.5);
+    }
     .float{
         padding-top: 10px;
         transition: transform 0.3s ease !important;
@@ -80,23 +87,26 @@
     .float:hover{
         transform: translateY(-10px);
     }
-    .anima{
-        background-color: white;
+    .img-click{
+        box-shadow:4px 4px 4px 4px black;
     }
-    .anima:hover{
-        background-color: rgba(0, 0, 0, 0.6);
+    .img-click:active{
+        transform:scale(0.95);
     }
     .mini{
         background-color:rgba(0,0,0,0.7);
         padding: 8px;
         color:white;
-        width: 200px;
-        transition: width 1s ease ;
+        transition: box-shadow,font-size 0.5s ease ;
         display: flex;
         justify-content: center;
     }
     .mini:hover{
-        width: 14rem;
+        box-shadow:5px 5px 5px black;
+        font-size:1.25rem;
+    }
+    .mini:active{
+        transform:scale(0.95);
     }
     .symbol{
         margin-top:11px;
@@ -109,7 +119,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
                 
-                <a class="navbar-brand" href="#intro" style="color:yellow;">Chin Chun Teng</a>
+                <a class="navbar-brand" href="#intro" style="color:yellow;"><b>Chin Chun Teng</b></a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -166,36 +176,37 @@
                     <img src="{{ asset('storage/images/header-background.jpg') }}" width="auto" height="729px" />
                     <div class="mask" style="background-color: rgba(0, 0, 0, 0.7);backdrop-filter: blur(2px);height:729px !important;">
                         <div class="text-center p-5">
-                            <div class="avatar p-1">
-                                <img class="img-thumbnail shadow-2-strong" src="{{ asset('storage/images/cct.jpg') }}" width="150" height="auto" style="margin-top:70px;margin-bottom:20px; " />
+                            <div class="avatar p-1"><img class="img-thumbnail shadow-2-strong"
+                                    src="{{ asset('storage/images/cct.jpg') }}" width="150" height="auto"
+                                    style="margin-top:70px;margin-bottom:20px; " />
                             </div>
                             <div class="header-bio mt-3">
                                 <div data-aos="zoom-in" data-aos-delay="0">
                                     <h2 class="h1" style="text-shadow: 1px 1px 2px">Chin Chun Teng</h2>
-                                    <p style="margin:10px;">PROGRAMMING INTERNSHIP</p>
+                                    <p>PROGRAMMING INTERNSHIP</p>
                                 </div>
                                 <div class="header-social mb-3 d-print-none" data-aos="zoom-in" data-aos-delay="200">
                                     <nav role="navigation">
                                         <ul class="nav justify-content-center">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="https://wa.me/601156911236" title="Twitter" target="_blank">
+                                            <li class="nav-item fahover">
+                                                <a class="nav-link" href="https://wa.me/601156911236" title="Whatsapp" target="_blank">
                                                     <i class="fab fa-whatsapp"></i>
                                                     <span class="menu-title sr-only">Whatsapp</span>
                                                 </a>
                                             </li>
-                                            <li class="nav-item">
+                                            <li class="nav-item fahover">
                                                 <a class="nav-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=chunteng9674@gmail.com" title="Mail" target="_blank">
                                                     <i class="fas fa-envelope"></i>
                                                     <span class="menu-title sr-only">Mail</span>
                                                 </a>
                                             </li>
-                                            <li class="nav-item">
+                                            <li class="nav-item fahover">
                                                 <a class="nav-link" href="https://www.instagram.com/ctchin_1114/" title="Instagram" target="_blank">
                                                     <i class="fab fa-instagram"></i>
                                                     <span class="menu-title sr-only">Instagram</span>
                                                 </a>
                                             </li>
-                                            <li class="nav-item">
+                                            <li class="nav-item fahover">
                                                 <a class="nav-link" href="https://github.com/angelwing20/resume.git" title="Github" target="_blank">
                                                     <i class="fab fa-github"></i>
                                                     <span class="menu-title sr-only">Github</span>
@@ -281,7 +292,7 @@
                                     <div class="progress my-2 rounded" style="height: 20px">
                                         <div class="progress-bar bg-info" role="progressbar" data-aos="zoom-in-right"
                                             data-aos-delay="100" data-aos-anchor=".skills-section"
-                                            style="width: 80%;" aria-valuenow="80" aria-valuemin="0"
+                                            style="width: 70%;" aria-valuenow="70" aria-valuemin="0"
                                             aria-valuemax="100">Intermediate</div>
                                     </div>
                                 </div>
@@ -386,14 +397,15 @@
                     <div class="portfolio-section">
                         <h2 class="h2 fw-light mb-4"><b>Qualification</b></h2>
                         <div class="row g-0">
-                            <div class="col-md-6 d-flex align-items-center anima" style="padding-bottom:10px;padding-top:10px;display:flex;justify-content:center;" data-aos="fade-right" data-aos-delay="100">
+                            <div class="col-md-6 d-flex align-items-center" style="padding-bottom:10px;padding-top:10px;display:flex;justify-content:center;" data-aos="fade-right" data-aos-delay="100">
+                                
                                 <a href="{{ route('qualification') }}" class="float" target="_blank">
-                                    <img class="img-fluid " src="{{ asset('storage/images/great learning.jpg') }}" width="300" height="200" />
+                                    <img class="img-fluid img-click" src="{{ asset('storage/images/great learning.jpg') }}" width="300" height="200" />
                                 </a>
                             </div>
-                            <div class="col-md-6 d-flex align-items-center anima" style="padding-bottom:10px;padding-top:10px;display:flex;justify-content:center;" data-aos="fade-left" data-aos-delay="100">
+                            <div class="col-md-6 d-flex align-items-center" style="padding-bottom:10px;padding-top:10px;display:flex;justify-content:center;" data-aos="fade-left" data-aos-delay="100">
                                 <a href="{{ route('qualification_two') }}" class="float" target="_blank">
-                                    <img class="img-fluid" src="{{ asset('storage/images/e latih.png') }}" width="300" height="200" />
+                                    <img class="img-fluid img-click" src="{{ asset('storage/images/e latih.png') }}" width="300" height="200" />
                                 </a>
                             </div>
                         </div>                
@@ -403,19 +415,17 @@
                     <div>
                         <h2 class="h2 fw-light mb-4"><b>Mini Project</b></h2>
                         <div class="row g-0">
-                            <div class="col-md-6 d-flex align-items-center" style="" data-aos="fade-right" data-aos-delay="100">
-                                <ul>
-                                    <li>
-                                        <a href="{{ asset('http://localhost/mini_project/bmi/bmi.php') }}" class="float project" target="_blank" style="text-decoration: none;">
+                            <div class="col-md-12" style="" data-aos="fade-right" data-aos-delay="100">
+                                <div>
+                                    <a href="{{ asset('http://localhost/mini_project/bmi/bmi.php') }}" class="float project" target="_blank" style="text-decoration: none;">
                                             <p class="mini"><b>BMI Calculator</b></p>
                                         </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ asset('http://localhost/mini_project/calculator/cal.php') }}" class="float project" target="_blank" style="text-decoration: none;">
+                                </div>
+                                <div>
+                                    <a href="{{ asset('http://localhost/mini_project/calculator/cal.php') }}" class="float project" target="_blank" style="text-decoration: none;">
                                             <p class="mini"><b>Calculator</b></p>
                                         </a>
-                                    </li>
-                                </ul>
+                                </div>        
                             </div>
                         </div>        
                     </div>
@@ -518,7 +528,7 @@
                         <ul class="nav justify-content-center">
                             <li class="nav-item"><a class="nav-link" href="https://wa.me/601156911236"
                                     title="Whatsapp" target="_blank"><i class="fab fa-whatsapp"></i><span
-                                        class="menu-title sr-only">Whatsapp</span></a>
+                                        class="menu-title sr-only">Twitter</span></a>
                             </li>
                             <li class="nav-item"><a class="nav-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=chunteng9674@gmail.com"
                                     title="Mail" target="_blank"><i class="fas fa-envelope"></i><span
